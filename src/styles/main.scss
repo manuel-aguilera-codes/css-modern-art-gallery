@@ -1,0 +1,363 @@
+@use "_default" as *;
+@use "_variables" as v;
+@use "_mixins" as m;
+@use "_layout" as lay;
+@use "_location" as *;
+
+body {
+  position: relative;
+}
+
+.main::before {
+  @include m.respond("desktop") {
+    content: "";
+    background-color: v.$black;
+    min-height: 740.7px;
+    width: 500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -4;
+  }
+}
+
+.top-bg {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  &__img {
+    width: 100%;
+    @include m.respond("tablet") {
+      display: none;
+    }
+    @include m.respond("desktop") {
+      display: none;
+    }
+    &-tablet {
+      display: none;
+      @include m.respond("tablet") {
+        display: inline-block;
+        position: absolute;
+        width: 55%;
+        max-width: 450px;
+        z-index: -3;
+      }
+      @include m.respond("desktop") {
+        display: none;
+      }
+    }
+    &-desktop {
+      display: none;
+      @include m.respond("desktop") {
+        display: inline-block;
+        position: absolute;
+        width: 500px;
+        z-index: -3;
+        left: 475px;
+      }
+    }
+  }
+}
+
+.container {
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.hero {
+  margin-bottom: 125px;
+  padding-top: 40px;
+  @include m.respond("tablet") {
+    padding-top: 120px;
+    margin-bottom: 300px;
+  }
+  @include m.respond("desktop") {
+    padding-top: 180px;
+    margin-bottom: 450px;
+  }
+
+  &__title {
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 0.9em;
+    margin-top: 0;
+    @include m.respond("tablet") {
+      width: 50%;
+      margin-bottom: 30px;
+      margin-right: 50px;
+    }
+    @include m.respond("desktop") {
+      width: 40%;
+      color: white;
+      font-size: 98px;
+      margin-left: 30px;
+      margin-right: 0;
+    }
+  }
+
+  &__other {
+    @include m.respond("tablet") {
+      width: 50%;
+      margin-right: 50px;
+    }
+    @include m.respond("desktop") {
+      width: 26%;
+      margin-right: 80px;
+    }
+    .hero__text {
+      font-size: 19px;
+      font-weight: 200;
+      line-height: 1.5em;
+      color: v.$grey;
+      margin-bottom: 40px;
+    }
+    .hero__button {
+      align-items: center;
+      &:hover {
+        transform: scale(1.1);
+      }
+      &-text {
+        padding: 22px 26px;
+        background-color: v.$black;
+        color: white;
+        font-family: v.$font-title;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 5px;
+        &:hover {
+          background-color: v.$grey;
+        }
+      }
+      &-img-a {
+        background-color: v.$brown;
+        padding: 16px 24px;
+      }
+      &-img-arrow {
+        height: 29.5px;
+      }
+    }
+  }
+}
+
+.lower {
+  width: 100%;
+}
+
+.first {
+  margin-bottom: 20px;
+  @include m.respond("tablet") {
+    margin-bottom: 15px;
+  }
+  @include m.respond("desktop") {
+    justify-content: space-between;
+  }
+  &__img {
+    grid-area: 1 / 1 / span 1 / span 1;
+    @include m.respond("tablet") {
+      max-width: 58%;
+    }
+    @include m.respond("desktop") {
+      width: 65%;
+    }
+    &-img {
+      max-width: 100%;
+      @include m.respond("desktop") {
+        display: none;
+      }
+    }
+    &-img-desktop {
+      display: none;
+      @include m.respond("desktop") {
+        display: inline-block;
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__text {
+    grid-area: 2 / 1 / span 1 / span 1;
+    @include m.respond("tablet") {
+      width: 42%;
+    }
+    @include m.respond("desktop") {
+      width: 35%;
+    }
+    &-h2 {
+      text-transform: uppercase;
+      font-size: 56px;
+      line-height: 0.9em;
+      margin: 30px 0;
+      @include m.respond("tablet") {
+        width: 90%;
+      }
+    }
+    &-p {
+      font-size: 19px;
+      font-weight: 200;
+      line-height: 1.5em;
+      color: v.$grey;
+      @include m.respond("tablet") {
+        width: 80%;
+      }
+    }
+  }
+}
+
+.second {
+  @include m.respond("tablet") {
+    gap: 15px;
+  }
+  @include m.respond("desktop") {
+    max-width: 1100px;
+    gap: 0px;
+  }
+  &__img-1 {
+    @include m.respond("tablet") {
+      grid-area: 1 / 1 / span 2 / span 1;
+    }
+    @include m.respond("desktop") {
+      padding-right: 14px;
+    }
+    &-img-mobile {
+      max-width: 100%;
+      margin-bottom: 15px;
+      @include m.respond("tablet") {
+        display: none;
+      }
+      @include m.respond("desktop") {
+        display: none;
+      }
+    }
+    &-img-tablet {
+      display: none;
+      @include m.respond("tablet") {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 0;
+        min-height: 100%;
+      }
+      @include m.respond("desktop") {
+        display: none;
+      }
+    }
+
+    &-img-desktop {
+      display: none;
+      @include m.respond("desktop") {
+        display: inline-block;
+        max-width: 100%;
+        grid-area: 1 / 1 / span 2 / span 1;
+      }
+    }
+  }
+
+  &__img-2 {
+    @include m.respond("tablet") {
+      grid-area: 1 / 2 / span 1 / span 1;
+    }
+    @include m.respond("desktop") {
+      padding-bottom: 14px;
+    }
+    &-img-mobile {
+      max-width: 100%;
+      margin-bottom: 15px;
+      @include m.respond("tablet") {
+        display: none;
+      }
+      @include m.respond("desktop") {
+        display: none;
+      }
+    }
+    &-img-tablet {
+      display: none;
+      @include m.respond("tablet") {
+        display: inline-block;
+        max-width: 100%;
+
+        margin-bottom: 0;
+      }
+      @include m.respond("desktop") {
+        display: none;
+      }
+    }
+    &-img-desktop {
+      display: none;
+      @include m.respond("desktop") {
+        display: inline-block;
+        max-width: 100%;
+      }
+    }
+  }
+  &__text {
+    background-color: v.$black;
+    padding: 30px 30px;
+    color: white;
+    @include m.respond("tablet") {
+      grid-area: 2 / 2 / span 1 / span 1;
+    }
+
+    &-h2 {
+      text-transform: uppercase;
+      font-size: 50px;
+      line-height: 0.9em;
+      margin: 30px 0;
+    }
+    &-p {
+      font-size: 19px;
+      font-weight: 200;
+      line-height: 1.5em;
+    }
+  }
+}
+
+.footer-a {
+  background-color: v.$black;
+  color: white;
+}
+
+.footer-b {
+  background-color: v.$brown;
+  color: v.$black;
+}
+
+.foot {
+  padding: 30px;
+
+  max-width: 1100px;
+  margin: auto;
+  @include m.respond("tablet") {
+    padding: 30px 35px;
+    align-items: start;
+  }
+  @include m.respond("desktop") {
+    padding: 30px 0px;
+  }
+  &__logo {
+    &-img {
+      width: 120px;
+    }
+  }
+  &__text {
+    &-p {
+      font-size: 16px;
+      font-weight: 200;
+      line-height: 1.5em;
+      margin: 45px 0;
+      @include m.respond("tablet") {
+        padding: 0px 150px 0px 70px;
+        margin: 0;
+      }
+      @include m.respond("desktop") {
+        padding: 0px 300px 0px 150px;
+      }
+    }
+  }
+  &__social {
+    gap: 25px;
+    .btn__social:hover {
+      transform: scale(1.2);
+    }
+  }
+}

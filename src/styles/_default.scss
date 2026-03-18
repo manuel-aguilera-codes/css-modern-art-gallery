@@ -1,0 +1,25 @@
+@use "_mixins" as m;
+@use "_variables" as v;
+
+body {
+  margin: 0;
+  font-family: v.$font-main;
+}
+
+main {
+  width: 100%;
+}
+
+.container {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 0px 16px;
+  @include m.respond("tablet") {
+    padding: 0px 35px;
+  }
+}
+
+h1,
+h2 {
+  font-family: v.$font-title;
+}

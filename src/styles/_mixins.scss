@@ -1,0 +1,13 @@
+@use "_variables" as v;
+
+@mixin respond($target) {
+  @if $target == "tablet" {
+    @media (min-width: v.$bp-tablet) {
+      @content;
+    }
+  } @else if $target == "desktop" {
+    @media (min-width: v.$bp-desktop) {
+      @content;
+    }
+  }
+}
