@@ -3,20 +3,20 @@
 
 .map {
   height: 80vh;
-  background-image: url("img/mobile/map.png");
+  background-image: url("../../img/mobile/map.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   @include m.respond("tablet") {
     height: 600px;
-    background-image: url("img/tablet/map.png");
+    background-image: url("../../img/tablet/map.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
   }
   @include m.respond("desktop") {
     height: 600px;
-    background-image: url("img/desktop/map.png");
+    background-image: url("../../img/desktop/map.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
